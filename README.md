@@ -13,7 +13,7 @@ The console application has its 3 main features, which are: (1) Suggests SEA tra
 #### 3. Inheritance
 #### 4. Polymorphism
 ## Program Structure
-Class Relationship
+### ***Class Relationship***
 
 | Class | Type | Extends | OOP Principle |
 | :---- | :--- | :-----: | :-----------: | 
