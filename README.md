@@ -99,43 +99,41 @@ DestinationManager | Concrete | | Polymorphism |
 * All project files properly organized in the correct folder structure
 ### ***Verify Java Installation***
 1. Open your terminal/command prompt and check if Java is installed: <br>
+		
+		java -version<br>
+		javac -version
 
-java -version<br>
-javac -version
 * You should see the Java version displayed. If not, download and install JDK from Oracle's website.
 ### ***Step-by-Step Instructions***
 **1. Navigate to Project Directory** Open your terminal/command prompt and navigate to the project folder:<br>
-* **Windows:** cd C:\path\to\ASEANTravelProject <br>
-* **Mac/Linux:** cd /path/to/ASEANTravelProject <br>
+* **Windows:**
+
+		cd C:\path\to\ASEANTravelProject <br>
+
+* **Mac/Linux:**
+
+		cd /path/to/ASEANTravelProject <br>
 	
-**2. Verify Folder Structure** Ensure your project has the following structure: <br>
-<br>
-ASEANTravelProject/ <br>
-├── Main.java <br>
-├── models/ <br>
-│   ├── Destination.java <br>
-│   ├── NatureDestination.java <br>
-│   ├── BeachDestination.java <br>
-│   └── UserDestination.java <br>
-├── data/ <br>
-│   ├── Country.java <br>
-│   └── UserSession.java <br>
-├── app/ <br>
-│   └── TravelApp.java <br>
-└── utils/ <br>
-  	  └── DestinationManager.java <br>
-<br>
+**2. Verify Folder Structure** Ensure your project has the following structure:
+
+![Folder Structure](Images/3.png)
+
 **3. Compile All Java Files** Compile all the Java source files in one command:<br>
-* **Windows:** javac Main.java models\*.java data\*.java app\*.java utils\*.java
-* **Mac/Linux:** javac Main.java models/*.java data/*.java app/*.java utils/*.java
+* **Windows:**
+
+		javac Main.java models\*.java data\*.java app\*.java utils\*.java
+
+* **Mac/Linux:**
+
+		javac Main.java models/*.java data/*.java app/*.java utils/*.java
 
 ***What happens:*** *This command compiles all .java files and generates .class files in the same directories.*<br> 
 ***Expected Output:*** *If successful, you'll see no error messages and .class files will be created.*
 
 **4. Run the Program** After successful compilation, run the program: <br>
 
-java Main <br>
-<br>
+		java Main
+
 ***Expected Output:*** *The program will start and display the welcome banner with the ASEAN Travel Destination Finder logo.*
 ## Sample Output
 #### Project Logo
