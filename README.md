@@ -104,13 +104,11 @@ java -version<br>
 javac -version
 * You should see the Java version displayed. If not, download and install JDK from Oracle's website.
 ### ***Step-by-Step Instructions***
-**1. Navigate to Project Directory**<br>
-Open your terminal/command prompt and navigate to the project folder:<br>
+**1. Navigate to Project Directory** Open your terminal/command prompt and navigate to the project folder:<br>
 * **Windows:** cd C:\path\to\ASEANTravelProject <br>
 * **Mac/Linux:** cd /path/to/ASEANTravelProject <br>
 	
-**2. Verify Folder Structure** <br>
-Ensure your project has the following structure: <br>
+**2. Verify Folder Structure** Ensure your project has the following structure: <br>
 <br>
 ASEANTravelProject/ <br>
 ├── Main.java <br>
@@ -127,16 +125,14 @@ ASEANTravelProject/ <br>
 └── utils/ <br>
   	  └── DestinationManager.java <br>
 <br>
-**3. Compile All Java Files** <br>
-Compile all the Java source files in one command:<br>
+**3. Compile All Java Files** Compile all the Java source files in one command:<br>
 * **Windows:** javac Main.java models\*.java data\*.java app\*.java utils\*.java
 * **Mac/Linux:** javac Main.java models/*.java data/*.java app/*.java utils/*.java
 
 ***What happens:*** *This command compiles all .java files and generates .class files in the same directories.*<br> 
 ***Expected Output:*** *If successful, you'll see no error messages and .class files will be created.*
 
-**4. Run the Program** <br>
-After successful compilation, run the program: <br>
+**4. Run the Program** After successful compilation, run the program: <br>
 
 java Main <br>
 <br>
@@ -155,7 +151,7 @@ java Main <br>
 
 ## References
 [BillWagner. (n.d.). Polymorphism - C#. Microsoft Learn.](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism) <br>
-[Braunschweig, D. (2018, December 15). Encapsulation. Programming Fundamentals.] <br>
+[Braunschweig, D. (2018, December 15). Encapsulation. Programming Fundamentals.](https://press.rebus.community/programmingfundamentals/chapter/encapsulation/#:~:text=Encapsulation%20is%20a%20fundamental%20principle%20of%20object%2Doriented,is%20not%20modified%20unexpectedly%20by%20external%20code**) <br>
 [Janssen, T. (2024, August 27). Encapsulation in Programming: A Beginner’s Guide. Stackify.](https://stackify.com/oop-concept-for-beginners-what-is-encapsulation) <br>
 [Janssen, T. (2025, February 6). OOP concept for beginners: What is inheritance? Stackify.](https://stackify.com/oop-concept-inheritance/) <br>
 [Gillis, A. S. (2023, February 22). abstract class. TheServerSide.com.](https://www.theserverside.com/definition/abstract-class) <br>
