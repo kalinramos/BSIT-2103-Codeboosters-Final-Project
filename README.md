@@ -8,54 +8,54 @@ Using the program, the travellers will not be too indulged in so much time resea
 
 The console application has its 3 main features, which are: (1) Suggests SEA travel destinations based on users’ budget and interest, (2) Enables adding users’ own destinations, and (3) Enables viewing of history.
 ## OOP Concepts Applied
-### 1. Abstraction
+### ***1. Abstraction***
 ***Abstract class***, by definition, is a class that cannot be instantiated but serves as a base class for other classes. Moreover, it can contain both regular, implemented methods and abstract methods, which are declared without an implementation and must be defined by the subclass (MATLAB, 2025). <br>
 
 In the project, the `Destination` class was defined. It is an abstract class that contains common properties, namely: `name`, `country`, `budget`, and `type`. <br>
 
-The class defined 4 abstract methods, such as: <br>
-* `getDescription()`: String - [description]
-* `getCulturalInfo()`: String
-* `getClimateInfo()`: String 
-* `getCuisineInfo()`: String
+The class defined 4 **abstract methods**, such as: <br>
+* `getDescription()`: String - Returns short description
+* `getCulturalInfo()`: String - Returns cuktural information
+* `getClimateInfo()`: String - Returns climate information
+* `getCuisineInfo()`: String - Returns cuisine information
 
 These methods were defined by the class’ **subclasses**, which, according to Gillis (2023), allows for the creation of class hierarchies that define common structures and behaviours while enforcing unique implementations for specific subclasses. 
 
-### 2. Encapsulation
+### ***2. Encapsulation***
 ***Encapsulation***, by its definition, is a fundamental concept in OOP that bundles data (attributes) and the methods (functions) that operate on that data into a single unit called a class (Janssen, 2024). Moreover, it acts as a protective barrier, hiding the internal state of an object from outside access and ensuring the data is only modified through the object's own methods (often called “**getters**” and “**setters**”), which promotes data integrity, security, and modularity.
 
 This principle became very useful in developing this project as it tackles variables that have multiple attributes or properties, such as: **SEA countries**, **travel destinations**, and as well as the **users**.
 
 ### SEA Countries
-The project defined a class, namely `Country`, that has 3 attributes, including:  <br>
+The project defined a class, namely `Country`, that has 3 **attributes**, including:  <br>
 * `name`:  String - The name of the SEA country 
 * `greeting`: String - The country’s national greeting
 * `destinations`: List<Destination> - Pre-defined travel destinations
 
-This class defines many functions, mostly **getters**, including: <br>
+This class defines many **methods**, mostly **getters**, including: <br>
 * `getName()`: String - Returns the name of the country
 * `getGreeting()`: String - Returns the national greeting of the particular country
 * `getDestinations()`: List<Destination> - Returns the travel destination
 ### Travel Destinations
-The project defined a class, namely `Destination`, that has 4 attributes, including: <br>
+The project defined a class, namely `Destination`, that has 4 **attributes**, including: <br>
 * `name`:  String - The name of the destination
 * `country`: String - The name of the country/location
 * `budget`: double - The budget required
 * `type`: String - The type of place 
 
-This class defines many functions, all **getters**, including: <br>
+This class defines many **methods**, all **getters**, including: <br>
 * `getName()`: String - Returns the name 
 * `getCountry()`: String - Returns the country
 * `getBudget()`: double - Returns the budget
 * `getType()`: String - Returns the type <br>
 ### User
-The project defined a class, namely `UserSession`, that has 4 attributes, including: <br>
+The project defined a class, namely `UserSession`, that has 4 **attributes**, including: <br>
 * `userName`:  String - The name of the user
 * `nationality`: String - Their nationality
 * `searchHistory`:  List<String> - The search history
 * `receipts`:  List<String> - The receipts
   
-This class defines many functions, mostly **getters** and **setters**, including: <br>
+This class defines many **methods**, mostly **getters** and **setters**, including: <br>
 **Getters:**
 * `getUserName()`: String - Returns the name 
 * `getNationality()`: String - Returns the country
@@ -66,37 +66,36 @@ This class defines many functions, mostly **getters** and **setters**, including
 * `setUserInfo()`: - Sets the value for userName and nationality
 
 As mentioned earlier, **getters** and **setters** are used to ensure data integrity, security, and modularity. But aside from those, using these methods also improved the project’s flexibility, as the data can be changed in the future, which will not affect other parts of the code that use the public getter and setter methods.
-### 3. Inheritance
+### ***3. Inheritance***
 ***Inheritance***, by the definition of Janssen (2025), is one of the core OOP concepts where a class (child/derived) can acquire the properties and methods of another class (parent/base). 
 
 As previously stated, `Destination` is an abstract class that defines 4 abstract methods. And this particular class has 3 **sub-classes**, namely: `NatureDestination`, `BeachDestination`, and `UserDestination`. Therefore, the properties and the behaviours the **parent class** contains, in this case the `Destination` class, were inherited by its 3 **child classes**. 
 
 Implementing inheritance in this project promoted code reusability, allowed for the creation of a class hierarchy, and enabled the code to be more modular and scalable. The child classes were then added to their own specific attributes and overrode (override) the inherited methods.
 
-### 4. Polymorphism
-***Polymorphism*** is a core concept in object-oriented programming (OOP) that means "many forms." This allows objects to respond to the same message or method call in their own unique way, which makes code more flexible, reusable, and maintainable (BillWagner, n.d.).
+### ***4. Polymorphism***
+***Polymorphism*** is a core concept in object-oriented programming (OOP) that means "**many forms**." This allows objects to respond to the same message or method call in their own unique way, which makes code more flexible, reusable, and maintainable (BillWagner, n.d.).
 
 In the context of this project, once again, the abstract class `Destination` was the one to apply this concept. This particular class provides common **superclasses** that its **subclasses inherit**, allowing objects of different subclasses to be treated as objects of the abstract type. This enables a single method call to **behave differently** depending on the actual subclass object, which is the core principle of polymorphism.
 ## Program Structure
-### ***Class Relationship***
+|Class Name|Description|Role|Extends|Package|
+| :------- | :-------- | :- | :---- | :---- |
+|Main|Application entry point that initialises and runs TravelApp|Creates TravelApp instance and starts program execution||Entry point|
+|Destination|Abstract base class|Defines blueprint for all destination types||models|
+|NatureDestination|For nature-based destinations|Implements nature-specific descriptions and information|Destination|models|
+|BeachDestination|For beach destinations|Implements beach-specific descriptions and information|Destination|models|
+|UserDestination|For user-created destinations|Implements custom destination information|Destination|models|
+|Country|For SEA countries|Manages country information and destination lists||data|
+|UserSession|For user session data, search history, and receipts|Manages user session data, search history, and receipts||data|
+|TravelApp|Main controller managing all program functionality. Demonstrates polymorphism through methods that work with Destination base type|Handles user interface and menu navigation||app|
+|DestinationManager|Utility class demonstrating polymorphic operations. Methods work with any Destination subclass|Shows runtime polymorphism (method overriding) and compile-time polymorphism (method overloading)||utils|
 
-| Class | Type | Extends | OOP Principle |
-| :---- | :--- | :-----: | :-----------: | 
-Main | Concrete | | Entry Point |
-Destination | Abstract | | Abstraction |
-NatureDestination | Concrete | Destination | Inheritance |
-BeachDestination | Concrete | Destination |  Inheritance |
-UserDestination | Concrete | Destination | Inheritance |
-Country | Concrete | | Encapsulation |
-UserSession | Concrete | | Encapsulation |
-TravelApp | Concrete | | Polymorphism |
-DestinationManager | Concrete | | Polymorphism |
 ## How to Run the Program
 ### ***Prerequisites***
 1. Before running the program, ensure you have:
   * Java Development Kit (JDK) 8 or higher installed on your system
 * Command Line/Terminal access
-* All project files properly organized in the correct folder structure
+* All project files are properly organised in the correct folder structure
 ### ***Verify Java Installation***
 1. Open your terminal/command prompt and check if Java is installed: <br>
 		
@@ -105,7 +104,7 @@ DestinationManager | Concrete | | Polymorphism |
 
 * You should see the Java version displayed. If not, download and install JDK from Oracle's website.
 ### ***Step-by-Step Instructions***
-**1. Navigate to Project Directory** Open your terminal/command prompt and navigate to the project folder:<br>
+1. **Navigate to Project Directory.** Open your terminal/command prompt and navigate to the project folder:<br>
 * **Windows:**
 
 		cd C:\path\to\ASEANTravelProject <br>
@@ -114,11 +113,11 @@ DestinationManager | Concrete | | Polymorphism |
 
 		cd /path/to/ASEANTravelProject <br>
 	
-**2. Verify Folder Structure** Ensure your project has the following structure:
+2. **Verify Folder Structure.** Ensure your project has the following structure:
 
-![Folder Structure](Images/3.png)
+	![Folder Structure](Images/FolderStructure.png)
 
-**3. Compile All Java Files** Compile all the Java source files in one command:<br>
+3. **Compile All Java Files.** Compile all the Java source files in one command:<br>
 * **Windows:**
 
 		javac Main.java models\*.java data\*.java app\*.java utils\*.java
@@ -128,17 +127,19 @@ DestinationManager | Concrete | | Polymorphism |
 		javac Main.java models/*.java data/*.java app/*.java utils/*.java
 
 ***What happens:*** *This command compiles all .java files and generates .class files in the same directories.*<br> 
-***Expected Output:*** *If successful, you'll see no error messages and .class files will be created.*
+***Expected Output:*** *If successful, you'll see no error messages, and .class files will be created.*
 
-**4. Run the Program** After successful compilation, run the program: <br>
+4. **Run the Program.** After successful compilation, run the program: <br>
 
 		java Main
 
 ***Expected Output:*** *The program will start and display the welcome banner with the ASEAN Travel Destination Finder logo.*
 ## Sample Output
-#### Project Logo
-![Logo](Images/1.png)
-#### Main Menu
+### ***Project Logo***
+This would be the first page/display that the users will see.
+	![Logo](Images/1.png)
+### ***Main Menu***
+The main menu of this project.
 ![Logo](Images/2.png)
 ## Author and Acknowledgement
 **Olivar, John Rafael** - [contribution/role] - Jrozy71 - 24-07295@g.batstate-u.edu.ph
