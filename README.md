@@ -1,4 +1,4 @@
-# ASEAN Travel Destination Finder
+# ✈️🪭ASEAN Travel Destination Finder
 ## Description
 When planning a vacation/travel, there are several key factors to consider. This includes budgeting, researching, booking, and extensive planning. Just the general overwhelm of decision-making would cause a lot of stress for the travellers. To mitigate this stress, we have come up with the project entitled: **“ASEAN Travel Destination Finder”**
 
@@ -28,12 +28,12 @@ TravelApp | Concrete | | Polymorphism |
 DestinationManager | Concrete | | Polymorphism |
 ## How to Run the Program
 ### ***Prerequisites***
-  Before running the program, ensure you have:
+1. Before running the program, ensure you have:
   * Java Development Kit (JDK) 8 or higher installed on your system
 * Command Line/Terminal access
 * All project files properly organized in the correct folder structure
 ### ***Verify Java Installation***
-Open your terminal/command prompt and check if Java is installed: <br>
+1. Open your terminal/command prompt and check if Java is installed: <br>
 
 java -version<br>
 javac -version
@@ -77,7 +77,10 @@ java Main <br>
 <br>
 ***Expected Output:*** *The program will start and display the welcome banner with the ASEAN Travel Destination Finder logo.*
 ## Sample Output
-![Logo](https://drive.google.com/file/d/1E1Bmy9cMUrYviBmYD89OFvzXgkX-8Ut9/view?usp=drive_link)
+#### Project Logo
+![Logo](Images/1.png)
+#### Main Menu
+![Logo](Images/2.png)
 ## Author and Acknowledgement
 **Olivar, John Rafael** - [contribution/role] - Jrozy71 - 24-07295@g.batstate-u.edu.ph
 
