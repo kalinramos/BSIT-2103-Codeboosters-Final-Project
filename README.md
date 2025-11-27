@@ -77,6 +77,7 @@ java Main <br>
 <br>
 ***Expected Output:*** *The program will start and display the welcome banner with the ASEAN Travel Destination Finder logo.*
 ## Sample Output
+![Logo](https://drive.google.com/file/d/1E1Bmy9cMUrYviBmYD89OFvzXgkX-8Ut9/view?usp=drive_link)
 ## Author and Acknowledgement
 **Olivar, John Rafael** - [contribution/role] - Jrozy71 - 24-07295@g.batstate-u.edu.ph
 
