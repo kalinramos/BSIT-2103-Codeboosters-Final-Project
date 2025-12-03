@@ -83,7 +83,7 @@ In the context of this project, once again, the abstract class `Destination` was
 This section includes UML diagrams and table which helps ensure the project is well-structured and adheres to OOP principles and to better visualize the connections/relationships between classes. <br>
 
 **UML Diagram**
-![UML](images/UML.png) <br><br>
+![UML](Images/UML.png) <br><br>
 **Table 1**
 |Class Name|Description|Role|Extends|Package|
 | :------- | :-------- | :- | :---- | :---- |
