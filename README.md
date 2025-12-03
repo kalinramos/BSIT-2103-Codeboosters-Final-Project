@@ -36,6 +36,7 @@ This class defines many **methods**, mostly **getters**, including: <br>
 * `getName()`: String - Returns the name of the country
 * `getGreeting()`: String - Returns the national greeting of the particular country
 * `getDestinations()`: List<Destination> - Returns the travel destination
+
 ### Travel Destinations
 The project defined a class, namely `Destination`, that has 4 **attributes**, including: <br>
 * `name`:  String - The name of the destination
@@ -48,6 +49,7 @@ This class defines many **methods**, all **getters**, including: <br>
 * `getCountry()`: String - Returns the country
 * `getBudget()`: double - Returns the budget
 * `getType()`: String - Returns the type <br>
+
 ### User
 The project defined a class, namely `UserSession`, that has 4 **attributes**, including: <br>
 * `userName`:  String - The name of the user
@@ -78,6 +80,11 @@ Implementing inheritance in this project promoted code reusability, allowed for 
 
 In the context of this project, once again, the abstract class `Destination` was the one to apply this concept. This particular class provides common **superclasses** that its **subclasses inherit**, allowing objects of different subclasses to be treated as objects of the abstract type. This enables a single method call to **behave differently** depending on the actual subclass object, which is the core principle of polymorphism.
 ## Program Structure
+This section includes UML diagrams and table which helps ensure the project is well-structured and adheres to OOP principles and to better visualize the connections/relationships between classes. <br>
+
+**UML Diagram**
+![UML](images/UML.png) <br><br>
+**Table 1**
 |Class Name|Description|Role|Extends|Package|
 | :------- | :-------- | :- | :---- | :---- |
 |Main|Application entry point that initialises and runs TravelApp|Creates TravelApp instance and starts program execution||Entry point|
@@ -135,12 +142,27 @@ In the context of this project, once again, the abstract class `Destination` was
 
 ***Expected Output:*** *The program will start and display the welcome banner with the ASEAN Travel Destination Finder logo.*
 ## Sample Output
-### ***Project Logo***
+### **Project Logo**
 This would be the first page/display that the users will see.
 	![Logo](Images/1.png)
-### ***Main Menu***
-The main menu of this project.
+### **Main Menu**
+The main menu/main feautures of this project.
 ![Logo](Images/2.png)
+### **Feature 1**
+![Logo](Images/3.png)
+![Logo](Images/4.png)
+### **Feature 2**
+![Logo](Images/5.png)
+### **Feature 3**
+(1) Receipt <br>
+![Logo](Images/6.png)
+![Logo](Images/7.png) <br>
+(2) Search History <br> <br>
+![Logo](Images/8.png) <br>
+(3) Delete History <br>
+![Logo](Images/9.png)
+
+
 ## Author and Acknowledgement
 **Olivar, John Rafael** - [contribution/role] - Jrozy71 - 24-07295@g.batstate-u.edu.ph
 
