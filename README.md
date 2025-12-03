@@ -1,5 +1,5 @@
 ![Header](Images/aseanTravelHeader.png)
-#ASEAN Travel Destination Finder
+# ASEAN Travel Destination Finder
 ## Description
 When planning a vacation/travel, there are several key factors to consider. This includes budgeting, researching, booking, and extensive planning. Just the general overwhelm of decision-making would cause a lot of stress for the travellers. To mitigate this stress, we have come up with the project entitled: **“ASEAN Travel Destination Finder”**
 
