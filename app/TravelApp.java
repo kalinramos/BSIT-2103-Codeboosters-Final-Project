@@ -19,7 +19,7 @@ public class TravelApp {
     public static final String WHITE = "\u001B[37m";
     public static final String BOLD = "\u001B[1m";
    
-    private static final int WIDTH = 150;
+    private static final int WIDTH = 70;
     private static final int width = 200;
     
     public TravelApp() {
