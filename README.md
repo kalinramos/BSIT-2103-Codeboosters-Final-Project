@@ -96,7 +96,6 @@ This section includes UML diagrams and table which helps ensure the project is w
 |Country|For SEA countries|Manages country information and destination lists||data|
 |UserSession|For user session data, search history, and receipts|Manages user session data, search history, and receipts||data|
 |TravelApp|Main controller managing all program functionality. Demonstrates polymorphism through methods that work with Destination base type|Handles user interface and menu navigation||app|
-|DestinationManager|Utility class demonstrating polymorphic operations. Methods work with any Destination subclass|Shows runtime polymorphism (method overriding) and compile-time polymorphism (method overloading)||utils|
 
 ## How to Run the Program
 ### ***Prerequisites***
