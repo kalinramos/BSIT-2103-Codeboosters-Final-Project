@@ -29,16 +29,16 @@ public class TravelApp {
         userDestinations = new ArrayList<Destination>();
         initializeCountries();
     }
-    
+    //this method is where countries, destinations, and other attributes was initialized
     private void initializeCountries() {
         Country ph = new Country("Philippines", "Mabuhay! Welcome to the Philippines!");
-        ph.addDestination(new NatureDestination("Banaue Rice Terraces", "Philippines", 1500, 
+        ph.addDestination(new NatureDestination("Banaue Rice Terraces", "Philippines", 300, 
             "ancient rice terraces and mountain hiking"));
-        ph.addDestination(new NatureDestination("Chocolate Hills", "Philippines", 1500, 
+        ph.addDestination(new NatureDestination("Chocolate Hills", "Philippines", 200, 
             "unique geological formations and scenic views"));
-        ph.addDestination(new BeachDestination("Boracay", "Philippines", 3000, 
+        ph.addDestination(new BeachDestination("Boracay", "Philippines", 350, 
             "swimming, diving, and water sports"));
-        ph.addDestination(new BeachDestination("El Nido", "Philippines", 4000, 
+        ph.addDestination(new BeachDestination("El Nido", "Philippines", 200, 
             "island hopping and snorkeling"));
         
         Country th = new Country("Thailand", "Sawasdee! Welcome to Thailand!");
@@ -316,17 +316,28 @@ public class TravelApp {
         }
         
         Destination chosen = matching.get(destChoice);
-        session.addSearch(chosen.getName() + " - " + chosen.getCountry());
-        
-        System.out.print("\n" + YELLOW + BOLD + centerText("Would you like to view additional details? (yes/no): ", WIDTH) + RESET);
+
+        System.out.print("\n" + YELLOW + BOLD 
+        + centerText("Would you like to view additional details? (yes/no): ", WIDTH) 
+        + RESET);
+
+
         String viewDetails = sc.nextLine().trim().toLowerCase();
-        
-        if (viewDetails.equals("yes")) {
-            showDestinationDetails(chosen, selectedCountry.getName(), budget, interest);
-        } else {
+
+        if (viewDetails.isEmpty()) {
             generateReceipt(chosen, selectedCountry.getName(), budget, interest);
+        return;
+}
+
+        if (viewDetails.equals("yes") || viewDetails.equals("y")) {
+            showDestinationDetails(chosen, selectedCountry.getName(), budget, interest);
+            generateReceipt(chosen, selectedCountry.getName(), budget, interest);
+} 
+        else {
+            generateReceipt(chosen, selectedCountry.getName(), budget, interest);
+}
+
         }
-    }
     
     private void showDestinationDetails(Destination dest, String country, double budget, String interest) {
         while (true) {
@@ -374,11 +385,21 @@ public class TravelApp {
         }
     }
     
-    private boolean askContinue() {
-        System.out.print("\n" + YELLOW + BOLD + centerText("Do you want to continue viewing details? (yes/no): ", WIDTH) + RESET);
-        return sc.nextLine().trim().toLowerCase().equals("yes");
+  private boolean askContinue() {
+    System.out.print("\n" + YELLOW + BOLD + centerText("Continue viewing details? (yes/no): ", WIDTH) + RESET);
+
+    String input = sc.nextLine().trim().toLowerCase();
+
+    if (input.isEmpty()) {
+        return false;
     }
-    
+
+    if (input.equals("yes") || input.equals("y")) {
+        return true;
+    }
+
+    return false;
+  }
     private void generateReceipt(Destination dest, String country, double budget, String interest) {
         System.out.println("\n" + CYAN + BOLD + createLine("═", WIDTH));
         System.out.println(centerText(" TRAVEL SUMMARY ", WIDTH));
@@ -404,6 +425,7 @@ public class TravelApp {
                         "Country: " + country + "\n" +
                         "Budget: ($)" + budget + "\n" +
                         "Interest: " + interest + "\n" +
+                        "Estimated cost: ($)" + dest.getBudget() + "\n" +
                         "\n ========== TRAVEL TIPS ==========\n" +
                         "- Book accommodations in advance\n" +
                         "- Check visa requirements\n" +
@@ -411,95 +433,101 @@ public class TravelApp {
                         "- Respect local customs\n" +
                         "- Keep emergency contacts handy\n" +
                         "===================================";
-        
+        session.addSearch( "User Added: " + dest.getName() + "  " + country + "  " + budget + "  " + interest );
         session.addReceipt(receipt);
         System.out.print("\n" + WHITE + centerText("Press Enter to return to main menu...", WIDTH) + RESET);
         sc.nextLine();
     }
     
-    private void addOwnDestination() {
-        clearScreen();
-        System.out.println(YELLOW + BOLD);
-        System.out.println("\n" + createLine("─", WIDTH));
-        System.out.println(centerText("  ADD YOUR OWN DESTINATION", WIDTH));
-        System.out.println(createLine("─", WIDTH) + RESET);
-        
-        System.out.print("\n" + centerText(CYAN + "Enter your name: " + RESET, WIDTH));
-        String name = sc.nextLine().trim();
-        
-        System.out.print(centerText(CYAN + "Enter your nationality: " + RESET, WIDTH));
-        String nationality = sc.nextLine().trim();
-        
-        session.setUserInfo(name, nationality);
-        
-        System.out.print("\n" + centerText(GREEN + "Enter place name: " + RESET, WIDTH));
-        String placeName = sc.nextLine().trim();
-        
-        System.out.print(centerText(GREEN + "Enter country: " + RESET, WIDTH));
-        String country = sc.nextLine().trim();
-        
-        System.out.print(centerText(GREEN + "Enter required budget($): " + RESET, WIDTH));
-        double budget = 0;
-        try {
-            budget = Double.parseDouble(sc.nextLine().trim());
-        } catch (NumberFormatException e) {
-            System.out.println(RED + centerText("Invalid budget. Destination not saved.", WIDTH) + RESET);
-            System.out.print("\n" + centerText("Press Enter to continue...", WIDTH));
-            sc.nextLine();
-            return;
-        }
-        
-        System.out.print(centerText(GREEN + "Enter helpful facts: " + RESET, WIDTH));
-        String facts = sc.nextLine().trim();
-        
-        System.out.print("\n" + YELLOW + BOLD + centerText("Save this destination? (yes/no): ", WIDTH) + RESET);
-        String save = sc.nextLine().trim().toLowerCase();
-        
-        if (save.equals("yes")) {
-            UserDestination userDest = new UserDestination(placeName, country, budget, facts);
-            userDestinations.add(userDest);
-            System.out.println("\n" + GREEN + centerText(" Destination saved successfully!", WIDTH) + RESET);
-        } else {
-            System.out.println("\n" + RED + centerText(" Destination not saved.", WIDTH) + RESET);
-        }
-                String receipt = "\n========== OWN DESTINATION ==========\n" +
-                        "Destination: " + name + "\n" +
-                        "Country: " + nationality + "\n" +
-                        "Budget: ($)" + placeName + "\n" +
-                        "Interest: " + country + "\n" +
-                        "Detail: " + budget + "\n" +
-                         "Destination: " + facts + "\n" +
-                        "\n ========== TRAVEL TIPS ==========\n" +
-                        "- Book accommodations in advance\n" +
-                        "- Check visa requirements\n" +
-                        "- Get travel insurance\n" +
-                        "- Respect local customs\n" +
-                        "- Keep emergency contacts handy\n" +
-                        "===================================";
+   private void addOwnDestination() {
+    clearScreen();
+    System.out.println(YELLOW + BOLD);
+    System.out.println("\n" + createLine("─", WIDTH));
+    System.out.println(centerText("  ADD YOUR OWN DESTINATION", WIDTH));
+    System.out.println(createLine("─", WIDTH) + RESET);
+    
+    System.out.print("\n" + centerText(CYAN + "Enter your name: " + RESET, WIDTH));
+    String name = sc.nextLine().trim();
+    
+    System.out.print(centerText(CYAN + "Enter your nationality: " + RESET, WIDTH));
+    String nationality = sc.nextLine().trim();
+    
+    session.setUserInfo(name, nationality);
+    
+    System.out.print("\n" + centerText(GREEN + "Enter place name: " + RESET, WIDTH));
+    String placeName = sc.nextLine().trim();
+    
+    System.out.print(centerText(GREEN + "Enter country: " + RESET, WIDTH));
+    String country = sc.nextLine().trim();
+    
+    System.out.print(centerText(GREEN + "Enter required budget($): " + RESET, WIDTH));
+    double budget = 0;
+    try {
+        budget = Double.parseDouble(sc.nextLine().trim());
+    } catch (NumberFormatException e) {
+        System.out.println(RED + centerText("Invalid budget. Destination not saved.", WIDTH) + RESET);
+        System.out.print("\n" + centerText("Press Enter to continue...", WIDTH));
+        sc.nextLine();
+        return;
+    }
+    
+    System.out.print(centerText(GREEN + "Enter helpful facts: " + RESET, WIDTH));
+    String facts = sc.nextLine().trim();
+    
+    System.out.print("\n" + YELLOW + BOLD + centerText("Save this destination? (yes/no): ", WIDTH) + RESET);
+    String save = sc.nextLine().trim().toLowerCase();
+    
+    if (save.equals("yes")) {
+        UserDestination userDest = new UserDestination(placeName, country, budget, facts);
+        userDestinations.add(userDest);
+        System.out.println("\n" + GREEN + centerText(" Destination saved successfully!", WIDTH) + RESET);
 
+    session.addSearch( "User Added: " + name + "  " + nationality + "  " + placeName + "  " + country + "  " + budget + "  " + facts);
+        
+        String receipt = "\n========== OWN DESTINATION ==========\n" +
+                        "User: " + name + "\n" +
+                        "Nationality: " + nationality + "\n" +
+                        "Placename: " + placeName + "\n" +
+                        "Country: " + country + "\n" +
+                        "Budget: ($)" + budget + "\n" +
+                        "Helpful facts: " + facts + "\n" +
+                        "\n========== TRAVEL TIPS ==========\n" +
+                        "- Book accommodations in advance\n" +
+                        "- Check visa requirements\n" +
+                        "- Get travel insurance\n" +
+                        "- Respect local customs\n" +
+                        "- Keep emergency contacts handy\n" +
+                        "===================================";
+        
         session.addReceipt(receipt);
-        System.out.print("\n" + WHITE + centerText("Press Enter to return to main menu...", WIDTH) + RESET);
-        sc.nextLine();
+    } else {
+        System.out.println("\n" + RED + centerText(" Destination not saved.", WIDTH) + RESET);
     }
     
-    private void viewHistory() {
+    System.out.print("\n" + WHITE + centerText("Press Enter to return to main menu...", WIDTH) + RESET);
+    sc.nextLine();
+}
+    
+private void viewHistory() {
+    while (true) {
         clearScreen();
         System.out.println(PURPLE + BOLD);
         System.out.println("\n" + createLine("─", WIDTH));
         System.out.println(centerText("  HISTORY", WIDTH));
         System.out.println(createLine("─", WIDTH) + RESET);
-        
+
         System.out.println("\n" + centerText(GREEN + "[1] Receipt " + RESET, WIDTH));
         System.out.println(centerText(BLUE + "[2] Search History " + RESET, WIDTH));
         System.out.println(centerText(RED + "[3] Delete History " + RESET, WIDTH));
         System.out.print(BOLD + centerText("Enter choice: ", WIDTH) + RESET);
-        
+
         String choice = sc.nextLine().trim();
-        
+
         if (choice.equals("1")) {
             System.out.println("\n" + CYAN + BOLD + createLine("═", WIDTH));
             System.out.println(centerText("YOUR RECEIPTS", WIDTH));
             System.out.println(createLine("═", WIDTH) + RESET);
+
             if (session.getReceipts().isEmpty()) {
                 System.out.println(centerText(YELLOW + "No receipts available." + RESET, WIDTH));
             } else {
@@ -508,34 +536,36 @@ public class TravelApp {
                     System.out.println(centerText(WHITE + session.getReceipts().get(i) + RESET, WIDTH));
                 }
             }
+
         } else if (choice.equals("2")) {
             System.out.println("\n" + CYAN + BOLD + createLine("═", WIDTH));
             System.out.println(centerText("SEARCH HISTORY", WIDTH));
             System.out.println(createLine("═", WIDTH) + RESET);
+
             if (session.getSearchHistory().isEmpty()) {
                 System.out.println(centerText(YELLOW + "No search history." + RESET, WIDTH));
             } else {
                 for (int i = 0; i < session.getSearchHistory().size(); i++) {
                     System.out.println(centerText(GREEN + (i + 1) + ". " + RESET + WHITE + session.getSearchHistory().get(i) + RESET, WIDTH));
-                    System.out.println(centerText(GREEN + (i + 1) + ". " + RESET + WHITE + session.getReceipts().get(i) + RESET, WIDTH));
                 }
             }
+
         } else if (choice.equals("3")) {
             session.clearHistory();
             System.out.println("\n" + GREEN + centerText(" History deleted successfully!", WIDTH) + RESET);
+
         } else {
             System.out.println("\n" + RED + centerText(" Invalid choice.", WIDTH) + RESET);
         }
-        
+
         System.out.print("\n" + YELLOW + BOLD + centerText("Return to Main Menu? (yes/no): ", WIDTH) + RESET);
-        String returnMenu = sc.nextLine().trim().toLowerCase();
-        
-        if (!returnMenu.equals("yes")) {
-            displayExitMessage();
-            System.exit(0);
+        String input = sc.nextLine().trim().toLowerCase();
+
+        if (input.isEmpty() || input.equals("yes") || input.equals("y")) {
+            return;
         }
     }
-    
+}
     private void displayExitMessage() {
         clearScreen();
         System.out.println(CYAN + BOLD);
