@@ -164,11 +164,11 @@ The main menu/main feautures of this project.
 
 
 ## Author and Acknowledgement
-**Olivar, John Rafael** - [contribution/role] - Jrozy71 - 24-07295@g.batstate-u.edu.ph
+**Olivar, John Rafael** - Jrozy71 - 24-07295@g.batstate-u.edu.ph
 
-**Patolot, Reigndel Chryster** - [contribution/role] - reigndel08 - 24-00949@g.batstate-u.edu.ph
+**Patolot, Reigndel Chryster** - reigndel08 - 24-00949@g.batstate-u.edu.ph
 
-**Ramos, Kalin Marie Faye** - [contribution/role] - kalinramos - 24-00116@g.batstate-u.edu.ph
+**Ramos, Kalin Marie Faye** - kalinramos - 24-00116@g.batstate-u.edu.ph
 
 ## References
 [BillWagner. (n.d.). Polymorphism - C#. Microsoft Learn.](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/object-oriented/polymorphism) <br>
